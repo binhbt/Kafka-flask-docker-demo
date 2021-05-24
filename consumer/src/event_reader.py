@@ -20,7 +20,7 @@ class Reader:
         while not hasattr(self, 'consumer'):
             self.logger.debug("Getting the kafka consumer")
             try:
-                self.consumer = KafkaConsumer(bootstrap_servers="kafka:9092",
+                self.consumer = KafkaConsumer(bootstrap_servers="209.97.171.162:9092",
                                               consumer_timeout_ms=10,
                                               auto_offset_reset='earliest',
                                               group_id=None)
@@ -44,6 +44,7 @@ class Reader:
         """
         self.logger.debug("Reading stream: {0}".format(topic))
         try:
+
             if self.consumer:
                 self.logger.debug("A consumer is calling 'next'")
                 try:
